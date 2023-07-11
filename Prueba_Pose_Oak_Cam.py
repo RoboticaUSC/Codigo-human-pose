@@ -1,7 +1,6 @@
 import cv2
 import depthai as dai
-import mediapipe as mp
-import numpy as np
+
 
 # Inicializar la cámara OAK-D por nodos
 pipeline = dai.Pipeline()
@@ -13,8 +12,7 @@ cam.setFps(30)
 cam.setBoardSocket(dai.CameraBoardSocket.RGB)
 
 cam_xout = pipeline.createXLinkOut()
-cam_xout.setStreamName("cam_out")
-cam.preview.link(cam_xout.input)
+
 
 ## inicializar estimador de pose
 mp_drawing = mp.solutions.drawing_utils
